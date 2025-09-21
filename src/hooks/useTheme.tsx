@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { useThemeStore } from '@/stores/themeStore';
+import { useThemeStore } from '@/stores/ThemeStore';
 
-const useTheme = () => {
+export default function useTheme() {
   const { setTheme } = useThemeStore();
 
   useEffect(() => {
@@ -18,6 +18,4 @@ const useTheme = () => {
     document.documentElement.setAttribute('data-ag-theme-mode', 'dark-blue');
     document.documentElement.setAttribute('data-ag-theme-mode', isDark ? 'dark-blue' : 'light');
   }, [setTheme]); // Run once when the component mounts
-};
-
-export default useTheme;
+}

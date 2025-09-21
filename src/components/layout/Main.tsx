@@ -2,11 +2,14 @@ import { Outlet, useRouteError } from 'react-router';
 import Loadingbar from './Loadingbar';
 import ErrorDisplay from './ErrorDisplay';
 import useTheme from '@/hooks/useTheme';
+import useValidate from '@/hooks/useValidate';
 
-const Main = () => {
+export default function Main() {
+  const error = useRouteError();
   // Handle theme change when the first page loaded hook
   useTheme();
-  const error = useRouteError();
+  // Check if the token is valid when the page first loaded
+  useValidate();
 
   if (error) {
     console.error(error);
@@ -22,6 +25,4 @@ const Main = () => {
       <Outlet />
     </div>
   );
-};
-
-export default Main;
+}
