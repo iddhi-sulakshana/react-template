@@ -3,8 +3,9 @@ import NotFound from '@/components/layout/NotFound';
 import Common from '@/components/layout/Common';
 import { createBrowserRouter } from 'react-router';
 import Home from '@/pages/Home';
-import Authenticated from '@/components/layout/Authenticated';
 import Dashboard from '@/pages/Dashboard';
+import PermissionRoute from '@/components/layout/PermissionRoute';
+import Signin from '@/pages/Signin';
 
 export default createBrowserRouter([
   {
@@ -25,16 +26,24 @@ export default createBrowserRouter([
       },
       // Handle Pages that require authentication
       {
-        path: '/dashboard/*',
-        element: <Authenticated />,
+        path: '/dashboard',
+        element: <Dashboard />,
         children: [
           {
-            index: true,
-            element: <Dashboard />,
+            path: 'admin-only',
+            element: <PermissionRoute roles={['admin']}>Admin Users only</PermissionRoute>,
+          },
+          {
+            path: 'anyone',
+            element: <>Anyone with signed in</>,
           },
         ],
       },
-      // Handle Pages that only unauthenticated users can access
+      // Handle Pages that only unauthenticated users can access like sign in and sign up
+      {
+        path: '/sign-in',
+        element: <Signin />,
+      },
       {
         path: '*',
         element: <NotFound />,

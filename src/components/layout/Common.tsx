@@ -3,10 +3,14 @@ import { ThemeToggle } from '@/components/ui/theme-toggle';
 import Logo from './Logo';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
+import { useAuthStore } from '@/stores/AuthStore';
 
 export default function Common() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const { token } = useAuthStore();
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   return (
@@ -32,8 +36,33 @@ export default function Common() {
 
             {/* Desktop Auth Buttons */}
             <div className='hidden md:flex items-center space-x-3'>
-              <Button variant='ghost'>Sign In</Button>
-              <Button>Sign Up</Button>
+              {token ? (
+                <Button
+                  onClick={() => {
+                    navigate('/dashboard');
+                  }}
+                >
+                  Dashboard
+                </Button>
+              ) : (
+                <>
+                  <Button
+                    variant='ghost'
+                    onClick={() => {
+                      navigate('/sign-in');
+                    }}
+                  >
+                    Sign In
+                  </Button>
+                  <Button
+                    onClick={() => {
+                      navigate('/sign-in');
+                    }}
+                  >
+                    Sign Up
+                  </Button>
+                </>
+              )}
               <ThemeToggle />
             </div>
 
