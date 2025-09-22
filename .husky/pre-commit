@@ -1,0 +1,19 @@
+echo "Running pre-commit hooks 🔍"
+
+branch_name=$(git symbolic-ref --short HEAD)
+if [ "$branch_name" = "main" ] || [ "$branch_name" = "develop" ] || [ "$branch_name" = "staging" ] || [ "$branch_name" = "production" ]; then
+  echo "\033[31mDirect pushes to locked branches are not allowed 🚫\033[0m"
+  exit 1
+fi
+
+# Run formatter
+bun run commit:check
+
+# Check for changes after formatting
+if ! git diff --quiet; then
+  echo "\033[33mSome files were changed by formatting 🚫"
+  echo "Please review and stage them before committing 💡\033[0m"
+  exit 1
+else
+  echo "\033[32mNo changes after formatting ✅\033[0m"
+fi
