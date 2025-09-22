@@ -8,9 +8,5 @@ export default function useValidate() {
     if (!token) return;
     // Validate token handler using request sending to the backend
     // const data = await validateTokenHandler(token);
-    const random = Math.random();
-    if (random > 0.5) {
-      logout();
-    }
   }, [token, logout]);
 }
