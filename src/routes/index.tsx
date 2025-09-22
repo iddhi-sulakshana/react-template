@@ -6,6 +6,7 @@ import Home from '@/pages/Home';
 import Dashboard from '@/pages/Dashboard';
 import PermissionRoute from '@/components/layout/PermissionRoute';
 import Signin from '@/pages/Signin';
+import Test from '@/pages/Test';
 
 export default createBrowserRouter([
   {
@@ -28,6 +29,7 @@ export default createBrowserRouter([
       {
         path: '/dashboard',
         element: <Dashboard />,
+        errorElement: <Dashboard />,
         children: [
           {
             path: 'admin-only',
@@ -35,7 +37,7 @@ export default createBrowserRouter([
           },
           {
             path: 'anyone',
-            element: <>Anyone with signed in</>,
+            element: <Test />,
           },
         ],
       },
