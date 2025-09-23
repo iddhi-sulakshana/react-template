@@ -1,4 +1,8 @@
-import { createObjectApi, getObjectByIdApi, listObjectsApi } from '@/api/test.api';
+import {
+  createObjectApi,
+  getObjectByIdApi,
+  listObjectsApi,
+} from '@/features/appointments/api/test.api';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 export const useGetObjectById = (id: string) => {
