@@ -1,7 +1,7 @@
 import ErrorDisplay from '@/components/layout/ErrorDisplay';
 import ProtectedItem from '@/components/layout/ProtectedItem';
 import { Button } from '@/components/ui/button';
-import { useAuthStore } from '@/stores/AuthStore';
+import { useAuthStore } from '@/stores/Auth.store';
 import { Navigate, NavLink, Outlet, useRouteError } from 'react-router';
 
 export default function Dashboard() {

@@ -1,4 +1,4 @@
-import { useAuthStore } from '@/stores/AuthStore';
+import { useAuthStore } from '@/stores/Auth.store';
 import { useEffect } from 'react';
 
 export default function useValidate() {

@@ -4,7 +4,7 @@ import Logo from './Logo';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Outlet, useNavigate } from 'react-router';
-import { useAuthStore } from '@/stores/AuthStore';
+import { useAuthStore } from '@/stores/Auth.store';
 
 export default function Common() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
