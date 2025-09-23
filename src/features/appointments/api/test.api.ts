@@ -1,6 +1,6 @@
 // Use this test api https://restful-api.dev/
 import type { DataResponse } from '@/types/api-contract.types';
-import ApiClient from './ApiClient';
+import ApiClient from '../../../utils/ApiClient';
 
 type ObjectDto = {
   id: string;
