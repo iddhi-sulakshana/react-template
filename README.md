@@ -1,6 +1,6 @@
-# Saloon Management System - Frontend
+# React Template
 
-A modern, scalable, and feature-rich frontend for a saloon management application, built with React, TypeScript, and Vite. This project provides a comprehensive foundation for managing appointments, customers, staff, and services.
+A modern, scalable, and feature-rich React template built with TypeScript and Vite. This project provides a comprehensive foundation for building React applications with a clean architecture, authentication, routing, and state management.
 
 ---
 
@@ -39,17 +39,14 @@ This project follows a feature-based architecture to ensure scalability and main
 │   │   │   ├── types.ts      # TypeScript types specific to authentication (e.g., `User`, `LoginPayload`)
 │   │   │   └── schemas.ts    # Zod schemas for validating authentication forms
 │   │   │
-│   │   ├── appointments/     # Handles all appointment-related functionality
-│   │   │   ├── components/   # Components specific to appointments (e.g., calendar, booking form)
-│   │   │   │   ├── AppointmentList.tsx
-│   │   │   │   ├── AppointmentCalendar.tsx
-│   │   │   │   └── BookingForm.tsx
-│   │   │   ├── services/     # React Query hooks for appointment APIs (`useGetAppointments`, etc.)
-│   │   │   ├── hooks/        # Custom hooks for complex logic within this feature (e.g., `useCalendarState`)
-│   │   │   ├── types.ts      # TypeScript types for appointments (`Appointment`, `Service`)
-│   │   │   └── schemas.ts    # Zod schemas for validating new appointment data
+│   │   ├── appointments/     # Example feature: Handles appointment-related functionality
+│   │   │   ├── components/   # Components specific to appointments
+│   │   │   ├── services/     # React Query hooks for appointment APIs
+│   │   │   ├── hooks/        # Custom hooks for complex logic within this feature
+│   │   │   ├── types.ts      # TypeScript types for appointments
+│   │   │   └── schemas.ts    # Zod schemas for validating appointment data
 │   │   │
-│   │   └── ...               # Other features like 'customers', 'staff', 'services' would follow this same pattern
+│   │   └── ...               # Add your own features following this same pattern
 │   │
 │   ├── hooks/                # Global, reusable hooks that can be used across multiple features
 │   │   ├── useTheme.tsx
@@ -60,20 +57,19 @@ This project follows a feature-based architecture to ensure scalability and main
 │   │   └── utils.ts          # Truly generic helper functions (like shadcn's `cn` for classnames)
 │   │
 │   ├── pages/                # The final assembly point for a view that corresponds to a route. Pages compose layout and feature components.
-│   │   ├── appointments/     # --- Pages related to the 'appointments' feature ---
-│   │   │   ├── AppointmentsListPage.tsx  # Displays a list of all appointments (Route: /appointments)
-│   │   │   ├── AppointmentDetailPage.tsx # Displays details for a single appointment (Route: /appointments/:id)
-│   │   │   └── CreateAppointmentPage.tsx # Contains the form for booking a new appointment (Route: /appointments/new)
+│   │   ├── appointments/     # Example: Pages related to the 'appointments' feature
+│   │   │   ├── AppointmentListPage.tsx
+│   │   │   ├── ApoointmentDetailsPage.tsx
+│   │   │   └── CreateAppointmentPage.tsx
 │   │   │
-│   │   ├── dashboard/        # --- Pages related to the main dashboard ---
-│   │   │   └── DashboardOverviewPage.tsx # The main dashboard view (Route: /dashboard)
+│   │   ├── Dashboard.tsx     # The main dashboard view
 │   │   │
-│   │   ├── auth/             # --- Pages for authentication flows ---
-│   │   │   ├── LoginPage.tsx           # (Route: /login)
-│   │   │   └── RegisterPage.tsx        # (Route: /register)
+│   │   ├── auth/             # Pages for authentication flows
+│   │   │   └── RegisterPage.tsx
 │   │   │
-│   │   ├── HomePage.tsx      # The public-facing landing page for the application (Route: /)
-│   │   └── NotFoundPage.tsx  # A 404 error page for routes that don't exist
+│   │   ├── Home.tsx          # The public-facing landing page (Route: /)
+│   │   ├── Signin.tsx        # Sign in page
+│   │   └── Test.tsx          # Test page
 │   │
 │   ├── providers/            # Wrappers that provide context to the entire application
 │   │   ├── ThemeProvider.tsx
